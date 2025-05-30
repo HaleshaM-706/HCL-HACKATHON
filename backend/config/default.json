@@ -1,0 +1,8 @@
+{
+    "roles" : {
+        "doctor" : "Doctor",
+        "nurse" : "Nurse",
+        "technician" : "Technician"
+    },
+    "appSecret" : "qwerty"
+}

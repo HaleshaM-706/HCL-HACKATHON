@@ -4,9 +4,12 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import passport from 'passport';
+import session from 'express-session'
 import cookieParser from 'cookie-parser';
 import './models/index'
-import indexRoutes from './routes/index'
+import indexRoutes from './routes/index';
+import config from "config";
+
 
 // Load environment variables from .env
 dotenv.config();
@@ -20,11 +23,17 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
+app.use(
+  session({
+    secret: config.get<string>("mongodbUri"),
+    resave: false,
+    saveUninitialized: false
+  })
+);
+
 // Initialize Passport
-// app.use(passport.initialize());
-// // Import Passport strategy (you need to create this file)
-// import passportConfig from './config/passport';
-// passportConfig(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Sample route
 app.get('/', (req: Request, res: Response) => {
