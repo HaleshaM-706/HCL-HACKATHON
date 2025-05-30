@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SignOn } from 'slayer/service-layer';
 
 // interface LoginPageProps {
 //     setIsLoggedIn: (isLoggedIn: boolean) => void;
@@ -11,17 +12,20 @@ const LoginPage: React.FC = () => {
     const [error, setError] = useState<string>('');
     const navigate = useNavigate();
 
-    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError('');
-
-        if (username === 'admin' && password === 'password') {
-            // localStorage.setItem('token', 'dummy-jwt-token');
-            // setIsLoggedIn(true);
-            navigate('/dashboard');
-        } else {
-            setError('Invalid username or password.');
+        const body={
+            username:username,
+            password:password
         }
+        const res= await SignOn(body);
+          if(res){
+            //   navigate('/dashboard');
+          }else {
+            setError('Invalid username or password.');
+          }
     };
 
     return (
