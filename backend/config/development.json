@@ -1,0 +1,4 @@
+{
+    "mongodbUri" : "mongodb+srv://reddy4f2786:e3LFK2gnGk6dgLM6@hclhackathon.smarm5b.mongodb.net/?retryWrites=true&w=majority&appName=HCLHackathon",
+    "mongoPort"  : 5050
+}

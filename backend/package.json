@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start:dev": "cross-env NODE_ENV=development ts-node index.ts",
+    "start:prod": "cross-env NODE_ENV=production ts-node index.ts",
     "debug": "nodemon ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,10 +22,13 @@
   "dependencies": {
     "@types/node": "^22.15.27",
     "bcrypt": "^6.0.0",
+    "config": "^4.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
     "express-validator": "^7.2.1",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
@@ -32,13 +36,16 @@
     "morgan": "^1.10.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@types/config": "^3.3.5",
     "@types/cookie-parser": "^1.4.8",
     "@types/cors": "^2.8.18",
     "@types/express": "^5.0.2",
-    "@types/passport": "^1.0.17"
+    "@types/passport": "^1.0.17",
+    "@types/passport-local": "^1.0.38"
   }
 }

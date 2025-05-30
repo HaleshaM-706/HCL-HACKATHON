@@ -5,6 +5,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
+import './models/index'
+import indexRoutes from './routes/index'
 
 // Load environment variables from .env
 dotenv.config();
@@ -29,8 +31,9 @@ app.get('/', (req: Request, res: Response) => {
   res.send(`Server is running on port ${PORT}`);
 });
 
+app.use('/api', indexRoutes);
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-  console.log(process.env)
 });
