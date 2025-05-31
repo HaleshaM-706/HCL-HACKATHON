@@ -17,7 +17,6 @@ async function main() {
     const existingAdmin = await Admin.findOne({
       $or: [{ email: "admin@hclhospital.com" }, { username: "hcladmin" }],
     });
-    await Admin.deleteOne({email : "admin@hclhospital.com"})
     if (existingAdmin) {
       console.log("Admin already exists:", existingAdmin);
       return existingAdmin;

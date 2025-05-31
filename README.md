@@ -33,3 +33,7 @@ npm install
 # Run the backend and frontend
 1. Frontend - `npm start`
 2. Backend - `npm run start:dev`
+
+# Use this login creds
+username - `hcladmin`
+password - `!Aworker2#`

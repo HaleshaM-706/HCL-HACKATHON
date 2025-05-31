@@ -21,3 +21,21 @@ export const SignOn = (body:any) => {
     })
    
   };
+
+  export const checkAuth = () => {
+    return new Promise(async (resolve,reject)=>{
+        const response = await fetch('http://localhost:3001/api/auth/check-auth', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }).then(async (response)=>{
+              const data = await response.json();
+              console.log(data);
+              resolve(data.status);
+          }).catch((err:any)=>{
+            reject(err.response);
+          })
+    })
+   
+  };
