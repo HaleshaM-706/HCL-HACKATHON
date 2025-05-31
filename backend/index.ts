@@ -1,9 +1,8 @@
-// index.ts
-
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import passport from 'passport';
+// import passport from 'passport';
+import passport from './config/passport';
 import session from 'express-session'
 import cookieParser from 'cookie-parser';
 import './models/index'

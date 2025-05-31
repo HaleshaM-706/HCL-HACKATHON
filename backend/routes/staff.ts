@@ -1,9 +1,11 @@
-import { Router } from 'express';
+import express from 'express';
+import { createOrEditStaff } from '../controllers/staff';
 
-const router = Router();
+const router = express.Router();
 
 // POST /staff/get
-router.post('/get', (req, res) => {
+// @todo add createOrEditStaff here
+router.post('/list', (req, res) => {
   res.status(200).send({status : true, message :'List of staff here', payload : []});
 });
 

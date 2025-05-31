@@ -4,31 +4,31 @@ import config from "config";
 const roles = config.get<Record<string, string>>("roles");
 
 export interface IStaff extends Document {
-  StaffId: string;
-  StaffName: string;
-  Department: string;
-  Role: string;
-  IsActive: boolean;
-  CreatedDate: Date;
-  UpdatedDate: Date;
+  staffId: string;
+  staffName: string;
+  department: string;
+  role: string;
+  isActive: boolean;
+  createdDate: Date;
+  updatedDate: Date;
 }
 
 const StaffSchema: Schema<IStaff> = new Schema({
-  StaffId: { type: String, required: true, unique: true },
-  StaffName: { type: String, required: true },
-  Department: { type: String, required: true },
-  Role: {
+  staffId: { type: String, required: true, unique: true },
+  staffName: { type: String, required: true },
+  department: { type: String, required: true },
+  role: {
     type: String,
     enum: [roles.doctor, roles.nurse, roles.technician],
     required: true,
   },
-  IsActive: { type: Boolean, default: true },
-  CreatedDate: { type: Date, default: () => new Date() },
-  UpdatedDate: { type: Date, default: () => new Date() },
+  isActive: { type: Boolean, default: true },
+  createdDate: { type: Date, default: () => new Date() },
+  updatedDate: { type: Date, default: () => new Date() },
 });
 
 StaffSchema.pre<IStaff>("save", function (next) {
-  this.UpdatedDate = new Date();
+  this.updatedDate = new Date();
   next();
 });
 

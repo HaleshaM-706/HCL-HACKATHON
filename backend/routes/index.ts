@@ -1,10 +1,10 @@
-import { Router } from "express";
+import express from 'express';
 import authRoutes from "./auth";
 import staffRoutes from "./staff";
 import staffAssignmentRoutes from "./staffAssignment";
 import { isAuthenticated } from "../middleware/auth";
 
-const router = Router();
+const router = express.Router();
 
 router.use("/auth", authRoutes);
 router.use("/staff", isAuthenticated, staffRoutes);
